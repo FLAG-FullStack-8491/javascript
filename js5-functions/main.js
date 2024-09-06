@@ -11,6 +11,8 @@ function greeting(name) {
     console.log("Hello " + name + "! How are you doing?");
 }
 
-greeting("Joe");
+const userName = "Bob";
+
+greeting(userName);
 greeting("Max");
 greeting("Martha");
