@@ -17,7 +17,7 @@ let numbers = [4, 7, 10, 12, 1, 8, 20];
 ## Exercise 9
 Write a program that prints **1 per line** only the names on odd positions in an array of names.
 ```
-let names = [“Josie”, “Cathrin”, “Bob”, “Max”, “Hannah”, “Alex”];
+let names = ["Josie”, "Cathrin”, "Bob”, "Max”, "Hannah”, "Alex”];
 ```
 
 
