@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #div1 {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+
+        .bold {
+            font-weight: bolder;
+        }
+
+        h1 {
+            font-size: 120px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="div1">
+        <h1 id="title">BOM DIA</h1>
+
+    </div>
+
+    <script>
+        // DOM = Document Object Model
+        const div1 = document.getElementById("div1");
+        const title = document.getElementById("title");
+
+        div1.style.width = "400px";
+        div1.style.overflow = "auto";
+        div1.style.backgroundColor = "pink";
+        // div1.innerHTML = "lalalala";
+
+
+        title.innerText += " HELLO!";
+
+
+
+        let x = 2 + 2; // 4
+
+        x += 3; // 7
+
+        let greeting = "Bom dia ";
+        greeting += " a todos";
+    </script>
+</body>
+
+</html>
