@@ -15,10 +15,10 @@
 
 <body>
     <div id="textBox">0</div>
-    <button>- 10</button>
-    <button>- 1</button>
+    <button id="buttonMinus10">- 10</button>
+    <button id="buttonMinus1">- 1</button>
     <button id="buttonPlus1">+ 1</button>
-    <button>+ 10</button>
+    <button id="buttonPlus10">+ 10</button>
 
     <script>
         //  1- Os botoes afectam o contador de acordo com a especificacao do botao
@@ -27,6 +27,53 @@
         //       - ser preto entre 0 e 10
         //       - azul se for superior a 10
         //       - verde se for superior a 100
+
+        function updateColor() {
+            if (counter < 0) {
+                textBox.style.color = "red";
+            } else if (counter > 100) {
+                textBox.style.color = "green";
+            } else if (counter > 10) {
+                textBox.style.color = "blue";
+            } else {
+                textBox.style.color = "black";
+            }
+        }
+
+        function updateCounter(value) {
+            counter += value;
+            textBox.textContent = counter;
+            updateColor();
+        }
+
+        function buttonMinus10Clicked() {
+            updateCounter(-10);
+        }
+
+        function buttonMinus1Clicked() {
+            updateCounter(-1);
+        }
+
+        function buttonPlus1Clicked() {
+            updateCounter(1);
+        }
+
+        function buttonPlus10Clicked() {
+            updateCounter(10);
+        }
+
+        const textBox = document.getElementById("textBox");
+        const buttonMinus10 = document.getElementById("buttonMinus10");
+        const buttonMinus1 = document.getElementById("buttonMinus1");
+        const buttonPlus1 = document.getElementById("buttonPlus1");
+        const buttonPlus10 = document.getElementById("buttonPlus10");
+
+        buttonMinus10.addEventListener("click", buttonMinus10Clicked);
+        buttonMinus1.addEventListener("click", buttonMinus1Clicked);
+        buttonPlus1.addEventListener("click", buttonPlus1Clicked);
+        buttonPlus10.addEventListener("click", buttonPlus10Clicked);
+
+        let counter = 0;
     </script>
 </body>
 
