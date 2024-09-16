@@ -43,23 +43,26 @@
         function updateCounter(value) {
             counter += value;
             textBox.textContent = counter;
-            updateColor();
         }
 
         function buttonMinus10Clicked() {
             updateCounter(-10);
+            updateColor();
         }
 
         function buttonMinus1Clicked() {
             updateCounter(-1);
+            updateColor();
         }
 
         function buttonPlus1Clicked() {
             updateCounter(1);
+            updateColor();
         }
 
         function buttonPlus10Clicked() {
             updateCounter(10);
+            updateColor();
         }
 
         const textBox = document.getElementById("textBox");
