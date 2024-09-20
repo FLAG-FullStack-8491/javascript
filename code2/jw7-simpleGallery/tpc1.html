@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #sampleImage {
+            width: 200px;
+            height: 200px;
+            object-fit: contain;
+            background-color: bisque;
+        }
+
+        #sampleDiv {
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+            background-image: url(images/homer.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="images/homer.png" id="sampleImage" alt="Homer eating a Donut">
+    <div id="sampleDiv"></div>
+
+    <button id="buttonNext">Next</button>
+    <script>
+        const sampleImage = document.getElementById("sampleImage");
+        const sampleDiv = document.getElementById("sampleDiv");
+        const buttonNext = document.getElementById("buttonNext");
+
+        buttonNext.addEventListener("click", function () {
+            // sampleImage.src = "images/marge.png";
+            // sampleDiv.style.backgroundImage = "url(images/marge.png)";
+
+            const margePic = "images/marge.png";
+
+            sampleImage.src = margePic;
+            sampleDiv.style.backgroundImage = "url(" + margePic + ")";
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #errorBox {
+            color: darkred;
+            background-color: orangered;
+            width: 300px;
+            padding: 5px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" placeholder="Name" id="sampleInput">
+    <button id="sampleButton">OK</button>
+
+    <p id="greetingBox"></p>
+    <div id="errorBox">Name is required</div>
+
+    <script>
+        const sampleInput = document.getElementById("sampleInput");
+        const sampleButton = document.getElementById("sampleButton");
+        const greetingBox = document.getElementById("greetingBox");
+        const errorBox = document.getElementById("errorBox");
+
+        sampleButton.addEventListener("click", function () {
+            errorBox.style.display = "none";
+
+            if (sampleInput.value.length === 0) {
+                errorBox.textContent = "Name is required";
+                errorBox.style.display = "block";
+                return;
+            }
+
+            if (sampleInput.value.length > 100) {
+                errorBox.textContent = "Name is too long";
+                errorBox.style.display = "block";
+                return;
+            }
+
+            greetingBox.textContent = "Hello " + sampleInput.value;
+        });
+
+        // 1 - coloquem o memso a codigo a funcionar para voces
+        // 2 - se o utilizador nao tiver escrito nenhum nome, vamos colocar uma mensagem a vermelho a dizer
+        //     `Name is required`
+    </script>
+
+</body>
+
+</html>

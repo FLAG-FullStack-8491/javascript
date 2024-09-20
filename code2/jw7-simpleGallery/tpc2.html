@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #sampleImage {
+            width: 200px;
+            height: 200px;
+            object-fit: contain;
+            background-color: bisque;
+        }
+
+        #sampleDiv {
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+            background-image: url(images/homer.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="" id="sampleImage">
+    <div id="sampleDiv"></div>
+
+    <button id="buttonPrev">Prev</button>
+    <button id="buttonNext">Next</button>
+    <script>
+        function updateImages() {
+            sampleImage.src = pictures[currentPicIndex];
+            sampleDiv.style.backgroundImage = "url(" + pictures[currentPicIndex] + ")";
+        }
+
+        const sampleImage = document.getElementById("sampleImage");
+        const sampleDiv = document.getElementById("sampleDiv");
+
+        const buttonPrev = document.getElementById("buttonPrev");
+        const buttonNext = document.getElementById("buttonNext");
+
+        let currentPicIndex = 0;
+        const pictures = [
+            "images/homer.png",
+            "images/marge.png",
+            "images/bart.png"
+        ];
+
+        updateImages();
+
+        buttonPrev.addEventListener("click", function () {
+
+            currentPicIndex -= 1;
+            if (currentPicIndex < 0) {
+                currentPicIndex = pictures.length - 1;
+            }
+
+            updateImages();
+        });
+
+        buttonNext.addEventListener("click", function () {
+
+            currentPicIndex += 1;
+            if (currentPicIndex >= pictures.length) {
+                currentPicIndex = 0;
+            }
+
+            updateImages();
+        });
+    </script>
+</body>
+
+</html>
