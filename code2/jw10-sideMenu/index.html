@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        header>button {
+            font-size: 32px;
+        }
+
+        #sideMenu {
+            position: fixed;
+            top: 0;
+            right: 0px;
+            width: 300px;
+            height: 100vh;
+            background-color: pink;
+            overflow: auto;
+
+            transition: 5s;
+        }
+
+        .hidden {
+            right: -300px !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <button id="burgerButton">🍔</button>
+    </header>
+
+    <main>
+
+    </main>
+
+    <div id="sideMenu" class="hidden">
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Something</a></li>
+                <li><a href="#">Something</a></li>
+                <li><a href="#">Something</a></li>
+                <li><a href="#">Something</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <script>
+        const burgerButton = document.getElementById("burgerButton");
+        const sideMenu = document.getElementById("sideMenu");
+        burgerButton.addEventListener("click", function () {
+            // console.log(sideMenu.classList);
+
+            if (sideMenu.classList.contains("hidden")) {
+
+                sideMenu.classList.remove("hidden");
+            } else {
+
+                sideMenu.classList.add("hidden");
+            }
+        });
+    </script>
+
+</body>
+
+</html>
