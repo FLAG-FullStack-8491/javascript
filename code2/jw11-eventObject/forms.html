@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <a href="https://google.com" id="googleLink">Google It!</a>
+
+    <form action="https://google.com/search" id="googleForm">
+        <input placeholder="Query" name="q">
+        <button type="submit" id="submitButton">Vai la!</button>
+    </form>
+
+    <script>
+
+        const googleLink = document.getElementById("googleLink");
+        googleLink.addEventListener("click", function (event) {
+            event.preventDefault();
+        });
+
+        const submitButton = document.getElementById("submitButton");
+        submitButton.addEventListener("click", function (event) {
+            event.preventDefault();
+        });
+
+    </script>
+
+</body>
+
+</html>
