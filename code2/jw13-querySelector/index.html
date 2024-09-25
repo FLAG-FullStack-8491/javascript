@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #colorBox {
+            width: 200px;
+            height: 200px;
+            border: solid 1px black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="colorBox"></div>
+
+    <button id="redButton" class="buttons">red</button>
+    <button id="greenButton" class="buttons">green</button>
+    <button id="blueButton" class="buttons">blue</button>
+    <button class="buttons">pink</button>
+    <button class="buttons">#451200</button>
+    <button class="buttons">yellow</button>
+    <button class="buttons">purple</button>
+    <button class="buttons">#6A00C4</button>
+    <button class="buttons">#0034F1</button>
+    <button class="buttons">bisque</button>
+
+    <script>
+        // const colorBox = document.querySelector("#colorBox");
+        // const redButton = document.querySelector("#redButton");
+        // const greenButton = document.querySelector("#greenButton");
+        // const blueButton = document.querySelector("#blueButton");
+
+        // redButton.addEventListener("click", function () {
+        //     colorBox.style.backgroundColor = "red";
+        // });
+        // greenButton.addEventListener("click", function () {
+        //     colorBox.style.backgroundColor = "green";
+        // });
+        // blueButton.addEventListener("click", function () {
+        //     colorBox.style.backgroundColor = "blue";
+        // });
+
+        const colorBox = document.querySelector("#colorBox");
+        const buttons = document.querySelectorAll(".buttons");
+
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener("click", function () {
+                colorBox.style.backgroundColor = buttons[i].textContent;
+            });
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #colorBox {
+            width: 200px;
+            height: 200px;
+            border: solid 1px black;
+        }
+
+        #buttonContainer {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="colorBox"></div>
+    <div id="buttonContainer">
+        <button id="redButton" class="buttons">red</button>
+        <button id="greenButton" class="buttons">green</button>
+        <button id="blueButton" class="buttons">blue</button>
+        <button class="buttons">pink</button>
+        <button class="buttons">#451200</button>
+        <button class="buttons">yellow</button>
+        <button class="buttons">purple</button>
+        <button class="buttons">#6A00C4</button>
+        <button class="buttons">#0034F1</button>
+        <button class="buttons">bisque</button>
+    </div>
+
+    <script>
+        const colorBox = document.querySelector("#colorBox");
+        const buttonContainer = document.querySelector("#buttonContainer");
+
+        buttonContainer.addEventListener("click", function (event) {
+            if (event.target.tagName !== "BUTTON") {
+                return;
+            }
+            colorBox.style.backgroundColor = event.target.textContent;
+        });
+
+    </script>
+</body>
+
+</html>

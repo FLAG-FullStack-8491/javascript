@@ -25,11 +25,15 @@
         const messageText = document.getElementById("messageText");
 
         myForm.addEventListener("submit", function (event) {
-
             event.preventDefault();
             messageText.textContent = "HELLO " + nameInput.value;
-
         });
+
+        // O objecto do evento, `event` neste caso, e um object com dezenas de propriedades
+        // invluidon o tipo de EventListener por exemplo click, ou submit
+        // as coordenadas do cursor do rato no caso de um click
+        // o target ou seja o elemento do DOM que disparou o evento
+        // entre muitas outras coisas
 
     </script>
 
