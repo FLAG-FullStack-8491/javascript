@@ -5,6 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        ul {
+            background-color: red;
+        }
+
+        li {
+            background-color: pink;
+        }
+
+        a {
+            background-color: yellow;
+        }
+    </style>
 </head>
 
 <body>
@@ -18,7 +31,29 @@
 
     <p>You chose: <span id="nameSpan">{ name here }</span></p>
 
-    <script></script>
+    <script>
+        const nameSpan = document.querySelector("#nameSpan");
+
+        // Solution 1: Loop through list of DOM elements
+        // const nameLinks = document.querySelectorAll("#nameList a");
+        // for (let i = 0; i < nameLinks.length; i++) {
+        //     const linkElement = nameLinks[i];
+        //     linkElement.addEventListener("click", function (event) {
+        //         event.preventDefault();
+        //         nameSpan.textContent = linkElement.textContent;
+        //     });
+        // }
+
+        // Solution 2: Event delegation
+        const nameList = document.querySelector("#nameList");
+        nameList.addEventListener("click", function (event) {
+            if (event.target.tagName !== "A") {
+                return;
+            }
+            event.preventDefault();
+            nameSpan.textContent = event.target.textContent;
+        });
+    </script>
 
 </body>
 
