@@ -39,18 +39,24 @@
         const colorBox = document.querySelector("#colorBox");
         const colorForm = document.querySelector("#colorForm");
         const colorInput = document.querySelector("#colorInput");
-        const colorList = document.querySelector("#colorList");
 
-        colorList.addEventListener("click", function (event) {
-            if (event.target.tagName !== "LI") {
-                return;
+        function addListeners() {
+            const lis = document.querySelectorAll("#colorList > li");
+            for (let i = 0; i < lis.length; i++) {
+                const colorLi = lis[i];
+                colorLi.addEventListener("click", function () {
+                    colorBox.style.backgroundColor = colorLi.textContent;
+                });
             }
-            colorBox.style.backgroundColor = event.target.textContent;
-        });
+        }
+
+        addListeners();
 
         colorForm.addEventListener("submit", function (event) {
             event.preventDefault();
             colorList.innerHTML += "<li>" + colorInput.value + "</li>";
+            // colorList.innerHTML += `<li>${colorInput.value}</li>`;
+            addListeners();
         });
 
     </script>

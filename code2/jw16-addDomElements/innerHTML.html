@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="someInfo">
+        <p>Lorem <span>ipsum</span> dolor sit amet consectetur adipisicing elit. Ratione illum, quas et officia nobis,
+            in vero
+            distinctio, inventore voluptatem facilis quibusdam atque sequi? Ut saepe non expedita nam, tempore quidem!
+        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione illum, quas et officia nobis, in vero
+            distinctio, inventore voluptatem facilis quibusdam atque sequi? Ut saepe non expedita nam, tempore quidem!
+        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione illum, quas et officia nobis, in vero
+            distinctio, inventore voluptatem facilis quibusdam atque sequi? Ut saepe non expedita nam, tempore quidem!
+        </p>
+    </div>
+
+    <script>
+        const someInfo = document.querySelector("#someInfo");
+        someInfo.innerHTML += "<p>OLA</p>";
+
+        // por norma nao e boa ideia utilizar innerHTML porque estamos a abrir a nossa pagina
+        // a ataques XSS - Cross Site Scripting attacks
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="newLinkForm">
+        <input placeholder="link" id="newLinkInput">
+        <button>Add New Link</button>
+    </form>
+
+    <ul id="linksList">
+        <li>google.com</li>
+        <li>flag.pt</li>
+    </ul>
+
+    <script>
+        const newLinkForm = document.querySelector("#newLinkForm");
+        const newLinkInput = document.querySelector("#newLinkInput");
+        const linksList = document.querySelector("#linksList");
+
+        newLinkForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            // linksList.innerHTML += `<li><a href="${newLinkInput.value}">${newLinkInput.value}</a></li>`;
+
+            // createElement cria um novo Elemento HTML em memoria e retorna a referencia
+            const newLiElement = document.createElement("li");
+            newLiElement.textContent = newLinkInput.value;
+
+            // appendChild acrescenta esse elemento ao DOM na posicao final do elemento pai
+            linksList.appendChild(newLiElement);
+        })
+    </script>
+</body>
+
+</html>
