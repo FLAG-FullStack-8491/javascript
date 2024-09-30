@@ -22,6 +22,7 @@
             left: 0;
             border-radius: 50%;
             opacity: 0.6;
+            transition: 5s;
         }
 
         .big {
@@ -99,6 +100,24 @@
             return parseInt(Math.random() * (max - min + 1)) + min;
         }
 
+        // function generateRandomCircle() {
+        //     const randomColorIndex = randomInt(0, colorClasses.length - 1);
+        //     const randomColorClass = colorClasses[randomColorIndex];
+
+        //     const randomSizeIndex = randomInt(0, sizeClasses.length - 1);
+        //     const randomSizeClass = sizeClasses[randomSizeIndex];
+
+        //     const randomTopPosition = randomInt(0, 95);
+        //     const randomLeftPosition = randomInt(0, 95);
+
+
+        //     const circle = `<div class="circle ${randomSizeClass} ${randomColorClass}" 
+        //                     style="top: ${randomTopPosition}%; left: ${randomLeftPosition}%">
+        //                     </div>`;
+        //     // alert(circle);
+        //     circleBox.innerHTML += circle;
+        // }
+
         function generateRandomCircle() {
             const randomColorIndex = randomInt(0, colorClasses.length - 1);
             const randomColorClass = colorClasses[randomColorIndex];
@@ -109,12 +128,14 @@
             const randomTopPosition = randomInt(0, 95);
             const randomLeftPosition = randomInt(0, 95);
 
+            const circle = document.createElement("div");
+            circle.classList.add("circle");
+            circle.classList.add(randomColorClass);
+            circle.classList.add(randomSizeClass);
+            circle.style.top = randomTopPosition + "%";
+            circle.style.left = `${randomLeftPosition}%`;
 
-            const circle = `<div class="circle ${randomSizeClass} ${randomColorClass}" 
-                            style="top: ${randomTopPosition}%; left: ${randomLeftPosition}%">
-                            </div>`;
-            // alert(circle);
-            circleBox.innerHTML += circle;
+            circleBox.appendChild(circle);
         }
 
         const generateForm = document.querySelector("#generateForm");
@@ -137,6 +158,23 @@
             if (!event.target.classList.contains("circle")) {
                 return;
             }
+
+            for (let i = 0; i < colorClasses.length; i++) {
+                event.target.classList.remove(colorClasses[i]);
+            }
+
+            for (let i = 0; i < sizeClasses.length; i++) {
+                event.target.classList.remove(sizeClasses[i]);
+            }
+
+            const randomColorIndex = randomInt(0, colorClasses.length - 1);
+            const randomColorClass = colorClasses[randomColorIndex];
+
+            const randomSizeIndex = randomInt(0, sizeClasses.length - 1);
+            const randomSizeClass = sizeClasses[randomSizeIndex];
+
+            event.target.classList.add(randomColorClass);
+            event.target.classList.add(randomSizeClass);
         });
 
         // TPC:

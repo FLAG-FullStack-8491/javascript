@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="loading">Loading...</div>
+
+    <p>Total: <span id="spanTotal"></span></p>
+    <ul id="pokemonList">
+
+    </ul>
+
+    <script>
+        const pokemonList = document.querySelector("#pokemonList");
+        const spanTotal = document.querySelector("#spanTotal");
+        const loading = document.querySelector("#loading");
+
+
+        fetch("https://pokeapi.co/api/v2/pokemon/?limit=1400").then(function (response) {
+
+            response.json().then(function (body) {
+
+                loading.style.display = "none";
+                spanTotal.textContent = body.count;
+
+                for (let i = 0; i < body.results.length; i++) {
+                    pokemonList.innerHTML += `<li>${body.results[i].name}</li>`;
+                    // console.log(body.results[i].name);
+                }
+
+            });
+        });
+
+        pokemonList.addEventListener("click", function (event) {
+            if (event.target.tagName !== "LI") {
+                return;
+            }
+            alert("I choose you " + event.target.textContent);
+        });
+
+        // TPC...
+        // 1 - Estudar a resposta da API dos Pokemons especificamente:
+        // https://pokeapi.co/api/v2/pokemon/pikachu
+
+        // 2 - usar fetch para ler os dados deste URL
+        // mostrar a imagem official, o nome, o peso, e outros dados ao vosso gosto
+
+        // 3 - tornar minimamente interessante com algum CSS
+    </script>
+</body>
+
+</html>

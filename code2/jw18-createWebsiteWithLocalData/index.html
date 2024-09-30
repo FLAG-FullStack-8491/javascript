@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #cardContainer {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: pink;
+            border-radius: 20px;
+        }
+
+        .card>img {
+            object-fit: contain;
+            width: 200px;
+            height: 200px;
+        }
+
+        .card>p {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="buttonAddCards">Add Cards</button>
+    <div id="cardContainer"></div>
+
+    <script>
+        // algum codigo que vai buscar dados a uma Rest API na Internet...
+        // para ja usamos esta sampleData
+        // dai o nome do projecto set CreateWebsiteWithLocalData
+
+        const sampleData = [
+            {
+                image: "./images/homer.png",
+                name: "Homer"
+            },
+            {
+                image: "./images/marge.png",
+                name: "Marge"
+            },
+            {
+                image: "./images/bart.png",
+                name: "Bart"
+            },
+        ];
+
+        const cardContainer = document.querySelector("#cardContainer");
+        const buttonAddCards = document.querySelector("#buttonAddCards");
+
+        buttonAddCards.addEventListener("click", function () {
+            for (let i = 0; i < sampleData.length; i++) {
+                cardContainer.innerHTML += `
+                <div class="card">
+                    <img src="${sampleData[i].image}">
+                    <p>${sampleData[i].name}</p>
+                </div>`;
+            }
+        });
+
+    </script>
+</body>
+
+</html>
