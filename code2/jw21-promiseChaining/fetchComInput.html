@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="pokeForm">
+        <input id="pokeInput" placeholder="Pokemon name or id">
+        <button>Go</button>
+    </form>
+
+    <img id="pokeImage" src="">
+    <p>name: <span id="pokeName"></span></p>
+    <p>weight: <span id="pokeWeight"></span></p>
+
+    <script>
+        function fetchPokemon(pokeName) {
+            console.log(pokeName);
+            const url = "https://pokeapi.co/api/v2/pokemon/" + pokeName;
+            console.log(url);
+            fetch(url)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (result) {
+                    console.log(result);
+                    displayPokemon(result);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                    alert("There was an error! Please try again!");
+                });
+        }
+
+        function displayPokemon(pokeInfo) {
+            const pokeImage = document.querySelector("#pokeImage");
+            const pokeName = document.querySelector("#pokeName");
+            const pokeWeight = document.querySelector("#pokeWeight");
+
+            pokeName.textContent = pokeInfo.name;
+            pokeWeight.textContent = pokeInfo.weight;
+            pokeImage.src = pokeInfo.sprites.other["official-artwork"].front_default;
+        }
+
+        const pokeForm = document.querySelector("#pokeForm");
+
+        pokeForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            fetchPokemon(pokeInput.value);
+        });
+
+
+    </script>
+</body>
+
+</html>

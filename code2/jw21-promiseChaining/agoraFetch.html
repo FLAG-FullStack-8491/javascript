@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
+        //     .then(function (response) {
+
+        //         response.json()
+        //             .then(function (result) {
+
+        //             })
+        //             .catch(function (error) {
+        //                 console.log("There was an error!");
+        //             });
+        //     })
+        //     .catch(function (error) {
+        //         console.log("There was an error!");
+        //     });
+
+        fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (result) {
+                displayPokemon(result);
+            })
+            .catch(function (error) {
+                alert("There was an error! Please try again!");
+            });
+    </script>
+</body>
+
+</html>

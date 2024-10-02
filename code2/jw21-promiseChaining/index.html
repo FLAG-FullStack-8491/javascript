@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const promise1 = new Promise(function (resolve, reject) {
+
+            // faz qq coisa importante
+
+            if (false) {
+                resolve("YAY");
+            } else {
+                reject("ohhhh....");
+            }
+        });
+
+        promise1.then(function (value) {
+            return 123;  // return new Promise(function(resolve, reject) { resolve(123)})
+        });
+
+        promise1.then(function (value) {
+
+        });
+
+        promise1.catch(function (error) {
+
+        });
+
+
+    </script>
+</body>
+
+</html>

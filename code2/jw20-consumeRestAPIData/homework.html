@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #pokeName {
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // TPC...
+        // 1 - Estudar a resposta da API dos Pokemons especificamente:
+        // https://pokeapi.co/api/v2/pokemon/pikachu
+
+        // 2 - usar fetch para ler os dados deste URL
+        // mostrar a imagem official, o nome, o peso, e outros dados ao vosso gosto
+
+        // 3 - tornar minimamente interessante com algum CSS
+    </script>
+
+    <img id="pokeImage" src="">
+    <p>name: <span id="pokeName"></span></p>
+    <p>weight: <span id="pokeWeight"></span></p>
+
+    <button id="loadInfoButton">Load Info</button>
+    <button id="changePageButton">Change Page</button>
+
+    <script>
+        function fetchPokemon() {
+            fetch("https://pokeapi.co/api/v2/pokemon/snorlax").then(function (response) {
+                response.json().then(function (result) {
+                    console.log(result.name);
+                    console.log(result.weight);
+                    console.log(result.sprites.other["official-artwork"].front_default);
+
+                    pokeName.textContent = result.name;
+                    pokeWeight.textContent = result.weight;
+                    pokeImage.src = result.sprites.other["official-artwork"].front_default;
+                });
+            });
+        }
+
+        const pokeImage = document.querySelector("#pokeImage");
+        const pokeName = document.querySelector("#pokeName");
+        const pokeWeight = document.querySelector("#pokeWeight");
+        const loadInfoButton = document.querySelector("#loadInfoButton");
+        const changePageButton = document.querySelector("#changePageButton");
+
+        loadInfoButton.addEventListener("click", function () {
+            fetchPokemon();
+        });
+
+        changePageButton.addEventListener("click", function () {
+            window.location = "https://pokeapi.co/api/v2/pokemon/snorlax";
+        });
+    </script>
+
+</body>
+
+</html>
