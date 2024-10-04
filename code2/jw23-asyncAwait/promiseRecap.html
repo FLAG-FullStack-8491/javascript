@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // async
+
+        // fetch()
+        // response.json()
+
+        // sync
+        function myPow(a, b) {
+            return a ** b;
+        }
+
+        let x = 2;
+        x += 1;
+        x *= 3;
+        x = Math.sqrt(x);
+        x += 1;
+
+        x = myPow(x, 2);
+
+        x -= 1;
+
+        console.log(x);
+
+        const pokePromise = fetch("https://pokeapi.co/api/v2/pokemon/25");
+        pokePromise.then(function (response) {
+            const jsonPromise = response.json();
+            jsonPromise.then(function () {
+
+            });
+
+        });
+        pokePromise.catch(function () {
+
+        });
+
+        button1.addEventListener("click", function () {
+
+        });
+
+    </script>
+
+</body>
+
+</html>

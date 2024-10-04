@@ -1,0 +1,11 @@
+#mainContainer {
+    border: solid 1px black;
+    width: 900px;
+    margin: 20px auto 0;
+    display: flex;
+    gap: 20px;
+}
+
+#pokemonDetails {
+    display: none;
+}
