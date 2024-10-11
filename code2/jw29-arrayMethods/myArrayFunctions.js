@@ -19,7 +19,10 @@ function mySort(numbersArray, callback) {
 
     for (let i = 0; i < numbersArray.length - 1; i++) {
         for (let j = 0; j < numbersArray.length - 1; j++) {
-            if (callback(numbersArray[j], numbersArray[j + 1]) > 0) {
+            const callbackResult = callback(numbersArray[j], numbersArray[j + 1]);
+            // callbackResult should be a standard comparison result
+            // 0, positive or negative
+            if (callbackResult > 0) {
                 const aux = numbersArray[j];
                 numbersArray[j] = numbersArray[j + 1];
                 numbersArray[j + 1] = aux;
