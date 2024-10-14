@@ -14,7 +14,8 @@
 // 2 - fazer um fetch e mostrar a lista de categorias no site
 
 // 3 - criar um eventListener para o "click" da lista de categorias
-//     ao clickar mostrar os produtos respectivos
+//     ao clickar mostrar os produtos respectivos, precisamos de outro fetch
+//     para mostrar os produtos da categoria
 
 //     HINT: nao se chateiem com o Thumbnail, nem com a ordem
 
