@@ -1,0 +1,42 @@
+body {
+    background-color: aquamarine;
+    margin: 0;
+}
+
+#categoriesBox {
+    border: solid 1px red;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#categoriesBox > a {
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    background-color: beige;
+    border-radius: 20px;
+}
+
+#productsBox {
+    border: solid 1px green;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+#productsBox > div {
+    width: 200px;
+    padding: 20px;
+    border: solid 2px gray;
+    border-radius: 20px;
+    background-color: beige;
+    box-shadow: 10px 10px 10px blue;
+}
+
+#productsBox img {
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+    object-fit: contain;
+}

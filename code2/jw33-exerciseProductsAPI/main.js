@@ -1,30 +1,54 @@
-// EXERCICIO
-// https://dummyjson.com/docs/products
+// DOM elements
+const productsBox = document.querySelector("#productsBox");
+const categoriesBox = document.querySelector("#categoriesBox");
+const priceSortSelect = document.querySelector("#priceSortSelect");
 
-// Criar uma lista de categorias no site
-// Ao clicar num elemento da lista
-// Mostrar e nome do produto, preco e Thumbnail de todos os productos associados a essa categoria
+// Support functions
+async function getProducts(url) {
+    const response = await fetch(url);
+    const result = await response.json();
 
-// 1 - Vamos mostrar o nome da categoria e nao a Slug ao utilizador
-// 2 - Perto da lista criar uma Select box que permite ordenar os produtos por preço
-//     ASC ou DESC
+    console.log(result);
+    
 
-// 1 - estudar a API!
+    productsBox.innerHTML = "";
+    result.products.forEach(element => {
+        productsBox.innerHTML += `
+        <div>
+            <img src="${element.thumbnail}" alt="">
+            <p>${element.title}</p>
+            <p>Price: ${element.price}</p>
+        </div>
+        `;
+    });
+}
 
-// 2 - fazer um fetch e mostrar a lista de categorias no site
+// Listeners
+categoriesBox.addEventListener("click", function(event) {
+    if (event.target.tagName !== "A") {
+        return;
+    }
+    event.preventDefault();
+    
+    slug = event.target.dataset.slug;
+    const url = `https://dummyjson.com/products/category/${slug}?sortBy=price&order=${priceSortSelect.value}`;
 
-// 3 - criar um eventListener para o "click" da lista de categorias
-//     ao clickar mostrar os produtos respectivos, precisamos de outro fetch
-//     para mostrar os produtos da categoria
+    getProducts(url);
+});
 
-//     HINT: nao se chateiem com o Thumbnail, nem com a ordem
+priceSortSelect.addEventListener("change", function() {
+    const url = `https://dummyjson.com/products/category/${slug}?sortBy=price&order=${priceSortSelect.value}`;
+    getProducts(url);
+});
 
-// 3.1 - Agora que conseguimos ver os nome e o preco, vamos por o Thumbnail tb!
+// Main
+const response = await fetch("https://dummyjson.com/products/categories");
+const result = await response.json();
+let slug = "beauty";
 
-// 4 - Acrescentar a opcao de ordenar por preco ASC e DESC
+const url = `https://dummyjson.com/products/category/${slug}?sortBy=price&order=${priceSortSelect.value}`;
+getProducts(url);
 
-// 4.1 - Adicionar um Event Listener "change" a Select Box
-//     - Quando muda alterar a ordem dos elementos
-
-// 4.2 - Se usaram a REST API para ordenar, ordenem agora localmente com o metodo SORT dos Arrays de JS
-//     - Ou vice-versa
+result.forEach(element => {
+    categoriesBox.innerHTML += `<a href="#" data-slug="${element.slug}">${element.name}</a>`;
+});
